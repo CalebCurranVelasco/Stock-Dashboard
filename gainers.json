@@ -1,0 +1,352 @@
+[
+    {
+        "symbol": "VEEA",
+        "name": null,
+        "change": 11.7,
+        "price": 17,
+        "changesPercentage": 220.7547
+    },
+    {
+        "symbol": "OMEX",
+        "name": "Odyssey Marine Exploration, Inc.",
+        "change": 1.0037,
+        "price": 1.5,
+        "changesPercentage": 201.0617
+    },
+    {
+        "symbol": "PRTG",
+        "name": "Portage Biotech Inc.",
+        "change": 6,
+        "price": 10.53,
+        "changesPercentage": 133.7793
+    },
+    {
+        "symbol": "APLT",
+        "name": "Applied Therapeutics, Inc.",
+        "change": 2.95,
+        "price": 7.6,
+        "changesPercentage": 63.4409
+    },
+    {
+        "symbol": "XCH",
+        "name": "XCHG Limited American Depositary Share",
+        "change": 6.585,
+        "price": 17.685,
+        "changesPercentage": 59.3243
+    },
+    {
+        "symbol": "TCON",
+        "name": "TRACON Pharmaceuticals, Inc.",
+        "change": 0.051,
+        "price": 0.14,
+        "changesPercentage": 57.3034
+    },
+    {
+        "symbol": "VVOS",
+        "name": "Vivos Therapeutics, Inc.",
+        "change": 1.5601,
+        "price": 4.3601,
+        "changesPercentage": 55.6384
+    },
+    {
+        "symbol": "ASPU",
+        "name": "Aspen Group, Inc.",
+        "change": 0.0859,
+        "price": 0.2495,
+        "changesPercentage": 52.5061
+    },
+    {
+        "symbol": "WBUY",
+        "name": "WEBUY GLOBAL LTD. Ordinary Shares",
+        "change": 0.0595,
+        "price": 0.1755,
+        "changesPercentage": 51.2931
+    },
+    {
+        "symbol": "HGAS",
+        "name": "Global Gas Corporation",
+        "change": 0.0499,
+        "price": 0.15,
+        "changesPercentage": 49.8502
+    },
+    {
+        "symbol": "LUNR",
+        "name": "Intuitive Machines, Inc.",
+        "change": 2.4666,
+        "price": 7.8666,
+        "changesPercentage": 45.7337
+    },
+    {
+        "symbol": "NEXI",
+        "name": "NexImmune, Inc.",
+        "change": 0.0996,
+        "price": 0.3647,
+        "changesPercentage": 37.5707
+    },
+    {
+        "symbol": "SGLY",
+        "name": "Singularity Future Technology Ltd.",
+        "change": 0.53,
+        "price": 2.08,
+        "changesPercentage": 33.125
+    },
+    {
+        "symbol": "LODE",
+        "name": "Comstock Inc.",
+        "change": 0.0976,
+        "price": 0.3976,
+        "changesPercentage": 32.5333
+    },
+    {
+        "symbol": "CACO",
+        "name": "Caravelle International Group",
+        "change": 0.1099,
+        "price": 0.4499,
+        "changesPercentage": 32.3235
+    },
+    {
+        "symbol": "KTTA",
+        "name": "Pasithea Therapeutics Corp.",
+        "change": 1.43,
+        "price": 5.78,
+        "changesPercentage": 31.6785
+    },
+    {
+        "symbol": "TLSA",
+        "name": "Tiziana Life Sciences Ltd",
+        "change": 0.2538,
+        "price": 1.0999,
+        "changesPercentage": 29.9965
+    },
+    {
+        "symbol": "MARK",
+        "name": "Remark Holdings, Inc.",
+        "change": 0.0261,
+        "price": 0.114,
+        "changesPercentage": 29.6191
+    },
+    {
+        "symbol": "JNVR",
+        "name": "Janover Inc.",
+        "change": 0.154,
+        "price": 0.678,
+        "changesPercentage": 29.3893
+    },
+    {
+        "symbol": "TCRT",
+        "name": "Alaunos Therapeutics, Inc.",
+        "change": 0.7099,
+        "price": 3.1399,
+        "changesPercentage": 29.214
+    },
+    {
+        "symbol": "SPGC",
+        "name": "Sacks Parente Golf, Inc.",
+        "change": 0.8499,
+        "price": 3.8999,
+        "changesPercentage": 29.1052
+    },
+    {
+        "symbol": "ADN",
+        "name": "Advent Technologies Holdings, Inc.",
+        "change": 0.605,
+        "price": 2.745,
+        "changesPercentage": 28.271
+    },
+    {
+        "symbol": "GLXG",
+        "name": "Galaxy Payroll Group Limited",
+        "change": 1.3,
+        "price": 5.9,
+        "changesPercentage": 28.2609
+    },
+    {
+        "symbol": "SCNI",
+        "name": "Scinai Immunotherapeutics Ltd.",
+        "change": 0.9,
+        "price": 4.3,
+        "changesPercentage": 26.2398
+    },
+    {
+        "symbol": "RNAZ",
+        "name": "TransCode Therapeutics, Inc.",
+        "change": 0.0744,
+        "price": 0.3644,
+        "changesPercentage": 26.2341
+    },
+    {
+        "symbol": "AREC",
+        "name": "American Resources Corporation",
+        "change": 0.1274,
+        "price": 0.6274,
+        "changesPercentage": 25.3583
+    },
+    {
+        "symbol": "JFBR",
+        "name": "Jeffs' Brands Ltd",
+        "change": 0.0512,
+        "price": 0.2734,
+        "changesPercentage": 23.0423
+    },
+    {
+        "symbol": "WTER",
+        "name": "The Alkaline Water Company Inc.",
+        "change": 0.025,
+        "price": 0.14,
+        "changesPercentage": 21.7391
+    },
+    {
+        "symbol": "ELTX",
+        "name": "Elicio Therapeutics, Inc.",
+        "change": 0.86,
+        "price": 5.01,
+        "changesPercentage": 20.7229
+    },
+    {
+        "symbol": "PGHL",
+        "name": "Primega Group Holdings Limited",
+        "change": 2.39,
+        "price": 14.04,
+        "changesPercentage": 20.515
+    },
+    {
+        "symbol": "GNLN",
+        "name": "Greenlane Holdings, Inc.",
+        "change": 1.15,
+        "price": 6.78,
+        "changesPercentage": 20.4263
+    },
+    {
+        "symbol": "SHOT",
+        "name": "Safety Shot Inc",
+        "change": 0.2843,
+        "price": 1.6943,
+        "changesPercentage": 20.1631
+    },
+    {
+        "symbol": "MYNA",
+        "name": "Mynaric AG",
+        "change": 0.174,
+        "price": 1.095,
+        "changesPercentage": 18.8925
+    },
+    {
+        "symbol": "ONCT",
+        "name": "Oncternal Therapeutics, Inc.",
+        "change": 0.27,
+        "price": 1.75,
+        "changesPercentage": 18.2432
+    },
+    {
+        "symbol": "MRAI",
+        "name": "Marpai, Inc.",
+        "change": 0.09,
+        "price": 0.6,
+        "changesPercentage": 17.6471
+    },
+    {
+        "symbol": "HWH",
+        "name": "HWH International Inc.",
+        "change": 0.0766,
+        "price": 0.507,
+        "changesPercentage": 17.4408
+    },
+    {
+        "symbol": "CABA",
+        "name": "Cabaletta Bio, Inc.",
+        "change": 0.73,
+        "price": 4.92,
+        "changesPercentage": 17.4224
+    },
+    {
+        "symbol": "EBET",
+        "name": "EBET, Inc.",
+        "change": 0.0079,
+        "price": 0.0539,
+        "changesPercentage": 17.1739
+    },
+    {
+        "symbol": "GTI",
+        "name": "Graphjet Technology Sdn. Bhd.",
+        "change": 0.3869,
+        "price": 2.6669,
+        "changesPercentage": 16.9693
+    },
+    {
+        "symbol": "MAXN",
+        "name": "Maxeon Solar Technologies, Ltd.",
+        "change": 0.0144,
+        "price": 0.1004,
+        "changesPercentage": 16.7832
+    },
+    {
+        "symbol": "SGN",
+        "name": "Signing Day Sports, Inc.",
+        "change": 0.0186,
+        "price": 0.1326,
+        "changesPercentage": 16.6071
+    },
+    {
+        "symbol": "SPAI",
+        "name": "Safe Pro Group Inc. Common Stock",
+        "change": 0.5,
+        "price": 3.6,
+        "changesPercentage": 16.1551
+    },
+    {
+        "symbol": "NVVE",
+        "name": "Nuvve Holding Corp.",
+        "change": 0.6801,
+        "price": 4.9201,
+        "changesPercentage": 16.0401
+    },
+    {
+        "symbol": "BBLG",
+        "name": "Bone Biologics Corporation",
+        "change": 0.2754,
+        "price": 2.0054,
+        "changesPercentage": 15.9191
+    },
+    {
+        "symbol": "REE",
+        "name": "REE Automotive Ltd.",
+        "change": 0.8629,
+        "price": 6.4329,
+        "changesPercentage": 15.3834
+    },
+    {
+        "symbol": "BCTX",
+        "name": "BriaCell Therapeutics Corp.",
+        "change": 0.0711,
+        "price": 0.5411,
+        "changesPercentage": 15.1277
+    },
+    {
+        "symbol": "SNES",
+        "name": "SenesTech, Inc.",
+        "change": 0.42,
+        "price": 3.2,
+        "changesPercentage": 15.1161
+    },
+    {
+        "symbol": "IAUX",
+        "name": "i-80 Gold Corp.",
+        "change": 0.16,
+        "price": 1.23,
+        "changesPercentage": 14.9533
+    },
+    {
+        "symbol": "CTSO",
+        "name": "Cytosorbents Corporation",
+        "change": 0.195,
+        "price": 1.515,
+        "changesPercentage": 14.7727
+    },
+    {
+        "symbol": "OLB",
+        "name": "The OLB Group, Inc.",
+        "change": 0.2915,
+        "price": 2.3315,
+        "changesPercentage": 14.2997
+    }
+]
