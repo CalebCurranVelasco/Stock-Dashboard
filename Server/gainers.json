@@ -1,0 +1,352 @@
+[
+    {
+        "symbol": "BATL",
+        "name": "Battalion Oil Corporation",
+        "change": 3.63,
+        "price": 6.57,
+        "changesPercentage": 123.469
+    },
+    {
+        "symbol": "BNZI",
+        "name": "Banzai International, Inc.",
+        "change": 2.82,
+        "price": 5.69,
+        "changesPercentage": 98.2579
+    },
+    {
+        "symbol": "ZJYL",
+        "name": "Jin Medical International Ltd.",
+        "change": 1.44,
+        "price": 4.08,
+        "changesPercentage": 54.5454
+    },
+    {
+        "symbol": "NBY",
+        "name": "NovaBay Pharmaceuticals, Inc.",
+        "change": 0.2431,
+        "price": 0.74,
+        "changesPercentage": 48.9233
+    },
+    {
+        "symbol": "HGAS",
+        "name": "Global Gas Corporation",
+        "change": 0.05,
+        "price": 0.25,
+        "changesPercentage": 47.619
+    },
+    {
+        "symbol": "XPON",
+        "name": "Expion360 Inc.",
+        "change": 0.0266,
+        "price": 0.0848,
+        "changesPercentage": 45.7045
+    },
+    {
+        "symbol": "ANEB",
+        "name": "Anebulo Pharmaceuticals, Inc.",
+        "change": 0.87,
+        "price": 3.08,
+        "changesPercentage": 39.3665
+    },
+    {
+        "symbol": "CERO",
+        "name": "CERo Therapeutics Holdings, Inc.",
+        "change": 0.032,
+        "price": 0.119,
+        "changesPercentage": 36.7816
+    },
+    {
+        "symbol": "SBIG",
+        "name": "SpringBig Holdings, Inc.",
+        "change": 0.0242,
+        "price": 0.09,
+        "changesPercentage": 36.7781
+    },
+    {
+        "symbol": "AENT",
+        "name": "Alliance Entertainment Holding Corporation",
+        "change": 0.69,
+        "price": 2.73,
+        "changesPercentage": 33.8235
+    },
+    {
+        "symbol": "VERB",
+        "name": "Verb Technology Company, Inc.",
+        "change": 0.0184,
+        "price": 0.074,
+        "changesPercentage": 33.0935
+    },
+    {
+        "symbol": "IMRX",
+        "name": "Immuneering Corporation",
+        "change": 0.79,
+        "price": 3.21,
+        "changesPercentage": 32.6446
+    },
+    {
+        "symbol": "RGF",
+        "name": "The Real Good Food Company, Inc.",
+        "change": 0.104,
+        "price": 0.43,
+        "changesPercentage": 31.9018
+    },
+    {
+        "symbol": "LFLY",
+        "name": "Leafly Holdings, Inc.",
+        "change": 0.52,
+        "price": 2.32,
+        "changesPercentage": 28.8889
+    },
+    {
+        "symbol": "ALRN",
+        "name": "Aileron Therapeutics, Inc.",
+        "change": 0.82,
+        "price": 3.73,
+        "changesPercentage": 28.1787
+    },
+    {
+        "symbol": "AILE",
+        "name": "Arrowroot Acquisition Corp.",
+        "change": 0.38,
+        "price": 1.76,
+        "changesPercentage": 27.5362
+    },
+    {
+        "symbol": "OKLO",
+        "name": "Oklo Inc.",
+        "change": 1.8,
+        "price": 8.41,
+        "changesPercentage": 27.2315
+    },
+    {
+        "symbol": "AFIB",
+        "name": "Acutus Medical, Inc.",
+        "change": 0.0211,
+        "price": 0.1,
+        "changesPercentage": 26.7427
+    },
+    {
+        "symbol": "DYNT",
+        "name": "Dynatronics Corporation",
+        "change": 0.04,
+        "price": 0.19,
+        "changesPercentage": 26.6667
+    },
+    {
+        "symbol": "RNXT",
+        "name": "RenovoRx, Inc.",
+        "change": 0.236,
+        "price": 1.22,
+        "changesPercentage": 23.9837
+    },
+    {
+        "symbol": "SABS",
+        "name": "SAB Biotherapeutics, Inc.",
+        "change": 0.65,
+        "price": 3.39,
+        "changesPercentage": 23.7226
+    },
+    {
+        "symbol": "XTNT",
+        "name": "Xtant Medical Holdings, Inc.",
+        "change": 0.1345,
+        "price": 0.7025,
+        "changesPercentage": 23.6796
+    },
+    {
+        "symbol": "NNE",
+        "name": "Nano Nuclear Energy Inc",
+        "change": 2.43,
+        "price": 13.02,
+        "changesPercentage": 22.9462
+    },
+    {
+        "symbol": "CEG",
+        "name": "Constellation Energy Corporation",
+        "change": 46.48,
+        "price": 254.98,
+        "changesPercentage": 22.2926
+    },
+    {
+        "symbol": "HCWB",
+        "name": "HCW Biologics Inc.",
+        "change": 0.1093,
+        "price": 0.613,
+        "changesPercentage": 21.6994
+    },
+    {
+        "symbol": "GLXG",
+        "name": "Galaxy Payroll Group Limited",
+        "change": 0.99,
+        "price": 5.79,
+        "changesPercentage": 20.625
+    },
+    {
+        "symbol": "CALC",
+        "name": "CalciMedica, Inc.",
+        "change": 0.85,
+        "price": 4.99,
+        "changesPercentage": 20.5314
+    },
+    {
+        "symbol": "REFR",
+        "name": "Research Frontiers Incorporated",
+        "change": 0.38,
+        "price": 2.32,
+        "changesPercentage": 19.5876
+    },
+    {
+        "symbol": "APYX",
+        "name": "Apyx Medical Corporation",
+        "change": 0.21,
+        "price": 1.3,
+        "changesPercentage": 19.266
+    },
+    {
+        "symbol": "CLIR",
+        "name": "ClearSign Technologies Corporation",
+        "change": 0.1412,
+        "price": 0.876,
+        "changesPercentage": 19.2161
+    },
+    {
+        "symbol": "LASE",
+        "name": "Laser Photonics Corporation",
+        "change": 1.66,
+        "price": 10.41,
+        "changesPercentage": 18.9714
+    },
+    {
+        "symbol": "SOS",
+        "name": "SOS Limited",
+        "change": 0.118,
+        "price": 0.75,
+        "changesPercentage": 18.6615
+    },
+    {
+        "symbol": "RFAIR",
+        "name": "RF Acquisition Corp II Right",
+        "change": 0.0112,
+        "price": 0.0714,
+        "changesPercentage": 18.6047
+    },
+    {
+        "symbol": "LTRPA",
+        "name": "Liberty TripAdvisor Holdings, Inc.",
+        "change": 0.08,
+        "price": 0.51,
+        "changesPercentage": 18.6046
+    },
+    {
+        "symbol": "PNBK",
+        "name": "Patriot National Bancorp, Inc.",
+        "change": 0.33,
+        "price": 2.11,
+        "changesPercentage": 18.5393
+    },
+    {
+        "symbol": "MGLD",
+        "name": "The Marygold Companies, Inc.",
+        "change": 0.24,
+        "price": 1.54,
+        "changesPercentage": 18.4615
+    },
+    {
+        "symbol": "ACAC",
+        "name": "Acri Capital Acquisition Corporation",
+        "change": 2.08,
+        "price": 13.48,
+        "changesPercentage": 18.2456
+    },
+    {
+        "symbol": "BBLG",
+        "name": "Bone Biologics Corporation",
+        "change": 0.33,
+        "price": 2.15,
+        "changesPercentage": 18.1319
+    },
+    {
+        "symbol": "ATGL",
+        "name": "Alpha Technology Group Limited Ordinary Shares",
+        "change": 0.23,
+        "price": 1.51,
+        "changesPercentage": 17.9688
+    },
+    {
+        "symbol": "XPL",
+        "name": "Solitario Zinc Corp.",
+        "change": 0.1248,
+        "price": 0.83,
+        "changesPercentage": 17.6888
+    },
+    {
+        "symbol": "LUXH",
+        "name": "LuxUrban Hotels Inc.",
+        "change": 0.0127,
+        "price": 0.0846,
+        "changesPercentage": 17.6634
+    },
+    {
+        "symbol": "TELO",
+        "name": "Telomir Pharmaceuticals, Inc. Common Stock",
+        "change": 1.14,
+        "price": 7.84,
+        "changesPercentage": 17.0149
+    },
+    {
+        "symbol": "OCTO",
+        "name": "Eightco Holdings Inc.",
+        "change": 0.37,
+        "price": 2.55,
+        "changesPercentage": 16.9725
+    },
+    {
+        "symbol": "VST",
+        "name": "Vistra Corp.",
+        "change": 15.3595,
+        "price": 107.88,
+        "changesPercentage": 16.6012
+    },
+    {
+        "symbol": "PZG",
+        "name": "Paramount Gold Nevada Corp.",
+        "change": 0.072,
+        "price": 0.51,
+        "changesPercentage": 16.4384
+    },
+    {
+        "symbol": "CISO",
+        "name": "Cerberus Cyber Sentinel Corporation",
+        "change": 0.0901,
+        "price": 0.64,
+        "changesPercentage": 16.3848
+    },
+    {
+        "symbol": "ACNT",
+        "name": "Ascent Industries Co.",
+        "change": 1.35,
+        "price": 9.65,
+        "changesPercentage": 16.2651
+    },
+    {
+        "symbol": "CJET",
+        "name": "Chijet Motor Company, Inc.",
+        "change": 0.39,
+        "price": 2.8,
+        "changesPercentage": 16.1826
+    },
+    {
+        "symbol": "MLSS",
+        "name": "Milestone Scientific Inc.",
+        "change": 0.1466,
+        "price": 1.06,
+        "changesPercentage": 16.0499
+    },
+    {
+        "symbol": "INHD",
+        "name": "Inno Holdings Inc. Common Stock",
+        "change": 0.0793,
+        "price": 0.5853,
+        "changesPercentage": 15.6719
+    }
+]

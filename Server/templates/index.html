@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Gainers Dashboard</title>
+    <script>
+        async function fetchData() {
+            const response = await fetch('/api/gainers');
+            const data = await response.json();
+            const tableBody = document.getElementById('gainers-data');
+            tableBody.innerHTML = '';
+
+            data.forEach(item => {
+                const row = `<tr>
+                    <td>${item.Symbol}</td>
+                    <td>${item['Percent Change']}</td>
+                    <td>${item.Summary}</td>
+                    <td>${item.Published}</td>
+                    <td><a href="${item.Link}" target="_blank">Link</a></td>
+                    <td>${item['Current Price']}</td>
+                    <td>${item.Float}</td>
+                    <td>${item['Average Volume']}</td>
+                    <td>${item['Current Volume']}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        setInterval(fetchData, 60000); // Refresh every minute
+        window.onload = fetchData;
+    </script>
+</head>
+<body>
+    <h1>Stock Gainers Dashboard</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Percent Change</th>
+                <th>Summary</th>
+                <th>Published</th>
+                <th>Link</th>
+                <th>Current Price</th>
+                <th>Float</th>
+                <th>Average Volume</th>
+                <th>Current Volume</th>
+            </tr>
+        </thead>
+        <tbody id="gainers-data">
+            <!-- Data will be dynamically inserted here -->
+        </tbody>
+    </table>
+</body>
+</html>
