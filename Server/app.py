@@ -9,9 +9,16 @@ from pysentimiento import create_analyzer
 from datetime import datetime, timedelta
 import threading
 import time
+import pytz  # Import pytz for timezone handling
+import holidays
 
 app = Flask(__name__)
 analyzer = create_analyzer(task="sentiment", lang="en")
+
+# Define the country holidays (for example, US holidays)
+us_holidays = holidays.US()
+# Mountain Time Zone
+MTN_TZ = pytz.timezone('America/Denver')
 
 # Function to fetch stock gainers and save to JSON
 def fetch_gainers_and_save_to_json():
@@ -110,21 +117,43 @@ def sentiment(big_data3):
         big_data3.at[index, 'Pos'] = result.probas['POS']
     return big_data3
 
-# Background thread function to periodically fetch and process data
-def fetch_data_periodically():
+# Function to check if the current time meets the conditions
+def is_valid_time():
+    current_mtn_time = datetime.now()
+    
+    # Check if it's a weekday (Monday to Friday) and not a holiday
+    if current_mtn_time.weekday() >= 5 or current_mtn_time.date() in us_holidays:
+        return False
+    
+    # Check if the current time is between 7:30 AM and 2:00 PM
+    start_time = current_mtn_time.replace(hour=7, minute=30, second=0, microsecond=0)
+    end_time = current_mtn_time.replace(hour=14, minute=0, second=0, microsecond=0)
+    
+    return start_time <= current_mtn_time <= end_time
+
+# Background thread function to periodically fetch and process data on Mountain Time
+def fetch_data_periodically_mtn():
     while True:
-       # Example usage in the data processing flow
-        fetch_gainers_and_save_to_json()
-        big_data01 = get_news_data_from_json('gainers.json')
-        big_data02 = filter_time(big_data01)  # Apply time filtering here
-        big_data03 = filter_strategy(big_data02)
-        big_data03 = sentiment(big_data03)
-        big_data03.to_json('filtered_gainers.json', orient='records')
-        print("Data updated.")
-        time.sleep(3600)  # Runs every hour
+        # Get the current time in Mountain Time
+        current_mtn_time = datetime.now(MTN_TZ)
+        
+        # Check if the time is at the start of a specific hour (e.g., 0 minutes past the hour)
+        if is_valid_time():
+            # Fetch and process data if it's on the hour
+            fetch_gainers_and_save_to_json()
+            big_data01 = get_news_data_from_json('gainers.json')
+            big_data02 = filter_time(big_data01)  # Apply time filtering here
+            big_data03 = filter_strategy(big_data02)
+            big_data03 = sentiment(big_data03)
+            big_data03.to_json('filtered_gainers.json', orient='records')
+            print(f"Data updated at {current_mtn_time.strftime('%Y-%m-%d %H:%M:%S %Z')}")
+        
+        # Sleep for 60 seconds before checking again
+        print(f"Market Closed: {current_mtn_time.strftime('%Y-%m-%d %H:%M:%S %Z')}")
+        time.sleep(120)
 
 # Start the data-fetching thread
-threading.Thread(target=fetch_data_periodically, daemon=True).start()
+threading.Thread(target=fetch_data_periodically_mtn, daemon=True).start()
 
 @app.route('/')
 def index():
@@ -137,4 +166,4 @@ def gainers_data():
     return jsonify(data)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8001)
