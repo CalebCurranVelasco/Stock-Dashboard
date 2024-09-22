@@ -4,8 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Gainers Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.5rem;
+            color: #4CAF50;
+        }
+
+        #mtn-time {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            font-size: 0.9rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            th, td {
+                font-size: 0.8rem;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            #mtn-time {
+                font-size: 1rem;
+            }
+        }
+    </style>
     <script>
-        async function fetchData() {
+        // Function to convert Unix timestamp to readable date format
+        function formatTimestamp(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleString(); // Converts to 'MM/DD/YYYY, HH:mm:ss' format by default
+        }
+
+        async function fetchGainersData() {
             const response = await fetch('/api/gainers');
             const data = await response.json();
             const tableBody = document.getElementById('gainers-data');
@@ -14,11 +98,11 @@
             data.forEach(item => {
                 const row = `<tr>
                     <td>${item.Symbol}</td>
-                    <td>${item['Percent Change']}</td>
+                    <td>${parseFloat(item['Percent Change']).toFixed(2)}%</td>
                     <td>${item.Summary}</td>
-                    <td>${item.Published}</td>
+                    <td>${formatTimestamp(item.Published)}</td>
                     <td><a href="${item.Link}" target="_blank">Link</a></td>
-                    <td>${item['Current Price']}</td>
+                    <td>$${item['Current Price']}</td>
                     <td>${item.Float}</td>
                     <td>${item['Average Volume']}</td>
                     <td>${item['Current Volume']}</td>
@@ -27,13 +111,29 @@
             });
         }
 
-        setInterval(fetchData, 60000); // Refresh every minute
-        window.onload = fetchData;
+        async function fetchCurrentMtnTime() {
+            const response = await fetch('/api/current_mtn_time');
+            const data = await response.json();
+            const timeElement = document.getElementById('mtn-time');
+            timeElement.innerHTML = `Data Updated: ${data.current_mtn_time}`;
+        }
+
+        // Fetch both data sets when the page loads
+        window.onload = () => {
+            fetchGainersData();
+            fetchCurrentMtnTime();
+        };
+
+        // Refresh the gainers data every 30 seconds
+        setInterval(fetchGainersData, 30000); // Refresh every 30 seconds
     </script>
 </head>
 <body>
     <h1>Stock Gainers Dashboard</h1>
-    <table border="1">
+    <div id="mtn-time">
+        <!-- Current Mountain Time will be dynamically inserted here -->
+    </div>
+    <table>
         <thead>
             <tr>
                 <th>Symbol</th>
@@ -53,3 +153,4 @@
     </table>
 </body>
 </html>
+

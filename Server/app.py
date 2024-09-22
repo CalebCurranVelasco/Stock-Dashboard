@@ -145,10 +145,25 @@ def fetch_data_periodically_mtn():
             big_data02 = filter_time(big_data01)  # Apply time filtering here
             big_data03 = filter_strategy(big_data02)
             big_data03 = sentiment(big_data03)
+
+            # Add current time as a new column to the DataFrame
+            big_data03['Timestamp'] = current_mtn_time.strftime('%Y-%m-%d %H:%M:%S %Z')
+            # Save the data along with the timestamp to the JSON file
             big_data03.to_json('filtered_gainers.json', orient='records')
+
             print(f"Data updated at {current_mtn_time.strftime('%Y-%m-%d %H:%M:%S %Z')}")
         
-        # Sleep for 60 seconds before checking again
+        # Format the current Mountain Time
+        formatted_time = current_mtn_time.strftime('%Y-%m-%d %H:%M:%S %Z')
+
+# Create a dictionary with the formatted time
+        time_data = {
+            "current_mtn_time": formatted_time
+        }
+
+        # Export the dictionary to a JSON file
+        with open('current_mtn_time.json', 'w') as json_file:
+            json.dump(time_data, json_file, indent=4)
         print(f"Market Closed: {current_mtn_time.strftime('%Y-%m-%d %H:%M:%S %Z')}")
         time.sleep(120)
 
@@ -158,6 +173,13 @@ threading.Thread(target=fetch_data_periodically_mtn, daemon=True).start()
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/api/current_mtn_time', methods=['GET'])
+def get_current_mtn_time():
+    with open('current_mtn_time.json', 'r') as f:
+        data = json.load(f)
+    return jsonify(data)
+
 
 @app.route('/api/gainers')
 def gainers_data():
