@@ -3,92 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Data</title>
-    <!-- Bootstrap for styling -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- DataTables CSS for better table display -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <title>Stock Gainers Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.5rem;
+            color: #4CAF50;
+        }
+
+        #mtn-time {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            font-size: 0.9rem;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            table {
+                width: 100%;
+            }
+
+            th, td {
+                font-size: 0.8rem;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            #mtn-time {
+                font-size: 1rem;
+            }
+        }
+    </style>
+    <script>
+        // Function to convert Unix timestamp to readable date format
+        function formatTimestamp(timestamp) {
+            const date = new Date(timestamp);
+            return date.toLocaleString(); // Converts to 'MM/DD/YYYY, HH:mm:ss' format by default
+        }
+
+        async function fetchGainersData() {
+            console.log("Fetching Gainers Data...");
+            try {
+                const response = await fetch('/api/gainers');  // Ensure the API endpoint is correct
+                const data = await response.json();
+                console.log("Data received:", data); // Log the data to ensure it's coming through
+
+                const tableBody = document.getElementById('gainers-data');
+                tableBody.innerHTML = '';
+
+                // Group data by symbol
+                const groupedData = data.reduce((acc, item) => {
+                    if (!acc[item.Symbol]) {
+                        acc[item.Symbol] = [];
+                    }
+                    acc[item.Symbol].push(item);
+                    return acc;
+                }, {});
+
+                // Create table rows
+                Object.keys(groupedData).forEach(symbol => {
+                    const articles = groupedData[symbol];
+
+                    // Start a new row with the main stock info
+                    let row = `<tr>
+                        <td>${symbol}</td>
+                        <td>${parseFloat(articles[0]['Percent Change']).toFixed(2)}%</td>
+                        <td>$${articles[0]['Current Price']}</td>
+                        <td>${articles[0].Float}</td>
+                        <td>${articles[0]['Average Volume']}</td>
+                        <td>${articles[0]['Current Volume']}</td>`;
+
+                    // Add all articles as separate columns for the symbol
+                    articles.forEach((article, index) => {
+                        row += `<td>
+                            <strong>Article ${index + 1}</strong>: ${article.Summary} <br>
+                            Published: ${formatTimestamp(article.Published)} <br>
+                            <a href="${article.Link}" target="_blank">Link</a>
+                        </td>`;
+                    });
+
+                    row += `</tr>`;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        async function fetchCurrentMtnTime() {
+            console.log("Fetching Current Mountain Time...");
+            try {
+                const response = await fetch('/api/current_mtn_time');  // Ensure the API endpoint is correct
+                const data = await response.json();
+                const timeElement = document.getElementById('mtn-time');
+                timeElement.innerHTML = `Data Updated: ${data.current_mtn_time}`;
+            } catch (error) {
+                console.error("Error fetching current mountain time:", error);
+            }
+        }
+
+        // Fetch both data sets when the page loads
+        window.onload = () => {
+            fetchGainersData();
+            fetchCurrentMtnTime();
+        };
+
+        // Refresh the gainers data every 30 seconds
+        setInterval(fetchGainersData, 30000); // Refresh every 30 seconds
+    </script>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1 class="text-center">Stock Data Overview</h1>
-        <div class="table-responsive">
-            <table id="data-table" class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Symbol</th>
-                        <th>Open Price</th>
-                        <th>Current Price</th>
-                        <th>Percent Change</th>
-                        <th>Article 1</th>
-                        <th>Article 2</th>
-                        <th>Article 3</th>
-                        <th>Article 4</th>
-                        <th>Article 5</th>
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
+    <h1>Stock Gainers Dashboard</h1>
+    <div id="mtn-time">
+        <!-- Current Mountain Time will be dynamically inserted here -->
     </div>
-
-    <!-- jQuery, Bootstrap JS, and DataTables JS -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            // Fetch the JSON data using the fetch API
-            fetch('data.json')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json(); // Parse the JSON from the response
-                })
-                .then(data => {
-                    let tableData = '';
-
-                    // Helper function to safely render articles
-                    function renderArticle(article) {
-                        if (article && article.length === 3) {
-                            return `<a href="${article[2]}" target="_blank">${article[0]}</a><br>${article[1]}`;
-                        } else {
-                            return 'No article available';
-                        }
-                    }
-    
-                    // Iterate through the data and create table rows
-                    data.forEach(row => {
-                        tableData += `
-                            <tr>
-                                <td>${row.symbol}</td>
-                                <td>${row.open_price}</td>
-                                <td>${row.current_price}</td>
-                                <td>${row.percent_change.toFixed(2)}%</td>
-                                <td>${renderArticle(row.article_1)}</td>
-                                <td>${renderArticle(row.article_2)}</td>
-                                <td>${renderArticle(row.article_3)}</td>
-                                <td>${renderArticle(row.article_4)}</td>
-                                <td>${renderArticle(row.article_5)}</td>
-                            </tr>
-                        `;
-                    });
-    
-                    // Append the table data to the table body
-                    $('#data-table tbody').html(tableData);
-    
-                    // Initialize DataTable
-                    $('#data-table').DataTable();
-                })
-                .catch(error => {
-                    console.error('Error fetching JSON:', error);
-                    $('#data-table tbody').html('<tr><td colspan="9">Error loading data</td></tr>');
-                });
-        });
-    </script>
-    
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Percent Change</th>
+                <th>Current Price</th>
+                <th>Float</th>
+                <th>Average Volume</th>
+                <th>Current Volume</th>
+                <!-- Articles will be dynamically added here -->
+            </tr>
+        </thead>
+        <tbody id="gainers-data">
+            <!-- Data will be dynamically inserted here -->
+        </tbody>
+    </table>
 </body>
 </html>
+
+

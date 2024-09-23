@@ -90,32 +90,64 @@
         }
 
         async function fetchGainersData() {
-            const response = await fetch('/api/gainers');
-            const data = await response.json();
-            const tableBody = document.getElementById('gainers-data');
-            tableBody.innerHTML = '';
+            console.log("Fetching Gainers Data...");
+            try {
+                const response = await fetch('/api/gainers');  // Ensure the API endpoint is correct
+                const data = await response.json();
+                console.log("Data received:", data); // Log the data to ensure it's coming through
 
-            data.forEach(item => {
-                const row = `<tr>
-                    <td>${item.Symbol}</td>
-                    <td>${parseFloat(item['Percent Change']).toFixed(2)}%</td>
-                    <td>${item.Summary}</td>
-                    <td>${formatTimestamp(item.Published)}</td>
-                    <td><a href="${item.Link}" target="_blank">Link</a></td>
-                    <td>$${item['Current Price']}</td>
-                    <td>${item.Float}</td>
-                    <td>${item['Average Volume']}</td>
-                    <td>${item['Current Volume']}</td>
-                </tr>`;
-                tableBody.innerHTML += row;
-            });
+                const tableBody = document.getElementById('gainers-data');
+                tableBody.innerHTML = '';
+
+                // Group data by symbol
+                const groupedData = data.reduce((acc, item) => {
+                    if (!acc[item.Symbol]) {
+                        acc[item.Symbol] = [];
+                    }
+                    acc[item.Symbol].push(item);
+                    return acc;
+                }, {});
+
+                // Create table rows
+                Object.keys(groupedData).forEach(symbol => {
+                    const articles = groupedData[symbol];
+
+                    // Start a new row with the main stock info
+                    let row = `<tr>
+                        <td>${symbol}</td>
+                        <td>${parseFloat(articles[0]['Percent Change']).toFixed(2)}%</td>
+                        <td>$${articles[0]['Current Price']}</td>
+                        <td>${articles[0].Float}</td>
+                        <td>${articles[0]['Average Volume']}</td>
+                        <td>${articles[0]['Current Volume']}</td>`;
+
+                    // Add all articles as separate columns for the symbol
+                    articles.forEach((article, index) => {
+                        row += `<td>
+                            <strong>Article ${index + 1}</strong>: ${article.Summary} <br>
+                            Published: ${formatTimestamp(article.Published)} <br>
+                            <a href="${article.Link}" target="_blank">Link</a>
+                        </td>`;
+                    });
+
+                    row += `</tr>`;
+                    tableBody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
         }
 
         async function fetchCurrentMtnTime() {
-            const response = await fetch('/api/current_mtn_time');
-            const data = await response.json();
-            const timeElement = document.getElementById('mtn-time');
-            timeElement.innerHTML = `Data Updated: ${data.current_mtn_time}`;
+            console.log("Fetching Current Mountain Time...");
+            try {
+                const response = await fetch('/api/current_mtn_time');  // Ensure the API endpoint is correct
+                const data = await response.json();
+                const timeElement = document.getElementById('mtn-time');
+                timeElement.innerHTML = `Data Updated: ${data.current_mtn_time}`;
+            } catch (error) {
+                console.error("Error fetching current mountain time:", error);
+            }
         }
 
         // Fetch both data sets when the page loads
@@ -136,15 +168,21 @@
     <table>
         <thead>
             <tr>
-                <th>Symbol</th>
-                <th>Percent Change</th>
-                <th>Summary</th>
-                <th>Published</th>
-                <th>Link</th>
-                <th>Current Price</th>
-                <th>Float</th>
-                <th>Average Volume</th>
-                <th>Current Volume</th>
+                <th rowspan="2">Symbol</th>
+                <th rowspan="2">Percent Change</th>
+                <th rowspan="2">Current Price</th>
+                <th rowspan="2">Float</th>
+                <th rowspan="2">Average Volume</th>
+                <th rowspan="2">Current Volume</th>
+                <th colspan="5">Articles</th> <!-- Add this line to group the "Articles" columns -->
+            </tr>
+            <tr>
+                <!-- Add additional columns dynamically if necessary -->
+                <th>Article 1</th>
+                <th>Article 2</th>
+                <th>Article 3</th>
+                <th>Article 4</th>
+                <th>Article 5</th>
             </tr>
         </thead>
         <tbody id="gainers-data">
@@ -153,4 +191,5 @@
     </table>
 </body>
 </html>
+
 
